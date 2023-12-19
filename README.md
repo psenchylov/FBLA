@@ -3,6 +3,10 @@ To run this program, you need to have Python 3 installed. This program also uses
 ```
 pip install PyQT6 
 ```
+To run this program, use the following command.
+```
+python fbla_gui.py
+```
 This program can also run in CLI mode. To run in CLI, use the following command:
 ```
 python fbla_gui.py --cli

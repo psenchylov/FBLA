@@ -29,6 +29,8 @@ class MainWindow(QMainWindow):
 
     #what to do when the button "Clear All Fields" is pressed 
     def clear_all_handler(self):
+        self.label_calculated_gpa = QLabel("0") #set initial value to GPA 
+        self.label_calculated_gpa.setStyleSheet("border: 0; padding-bottom: 10px; font-weight: bold;")
         self.score_fields = [] #clean up a list of fields 
         self.score_fields.append((QTextEdit(), QTextEdit())) #adding the first empty pairs 
         container = self.create_central_widget() #create a central widget again 
