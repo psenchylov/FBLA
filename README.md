@@ -1,1 +1,2 @@
 This is the project for the FBLA Introduction to Programming, by Sanat Myaka and Pavlo Senchylov. 
+To run this program, you need to have Python 3 installed. This program also uses the PyQT6 framework, so you should run the command "pip install PyQT6" prior to the first run. 
