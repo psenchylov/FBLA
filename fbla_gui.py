@@ -44,14 +44,19 @@ class MainWindow(QMainWindow):
             class_text_edit, score_text_edit = element #unpacking the tuple 
             class_name = class_text_edit.toPlainText() #getting a class name from the QTextEdit
             score_value = score_text_edit.toPlainText() #getting a score from the QTextEdit
-            if score_value.isdigit(): #it might be text, so we need to check it first 
+            if score_value.isdigit(): #it might be text, so we need to check it first
+                if int(score_value) < 69:
+                    score_text_edit.setStyleSheet("color: red;") #higlight the wrong field 
+                    score_text_edit.setPlainText(score_value + " is out of range") #add a suggestion to a user
+                    self.label_calculated_gpa.setText("n/a") #disable a GPA value if it was calculated     
+                    return
                 score_text_edit.setStyleSheet("color: black;") #it's neccessary if it was colored red before 
                 class_dict.update({class_name:int(score_value)}) # put a class score
             else:
                 score_text_edit.setStyleSheet("color: red;") #higlight the wrong field 
                 score_text_edit.setPlainText("Should be digital") #add a suggestion to a user
                 self.label_calculated_gpa.setText("n/a") #disable a GPA value if it was calculated
-                break #no further calculations make sense 
+                return #no further calculations make sense 
         gpa_score = calculate_gpa(class_dict)
         self.label_calculated_gpa.setText(str(gpa_score)) #put the GPA to the label 
 
